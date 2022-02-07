@@ -1279,7 +1279,7 @@ GameObject:
   - component: {fileID: 1120914119}
   - component: {fileID: 1120914120}
   m_Layer: 0
-  m_Name: ResizeEnvironment
+  m_Name: ObjectResizer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1311,7 +1311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4332d1550989d2f42b33c2e8a6c51693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  environment: {fileID: 2129149302}
+  objectToResize: {fileID: 2129149302}
   scaleInaccurately: 0
   resetScale: 0
 --- !u!1 &1267127723
@@ -1428,6 +1428,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftController: {fileID: 170473688}
   rightController: {fileID: 804150071}
+  objectResizer: {fileID: 1120914120}
+  scalePerClick: 0.01
 --- !u!1 &1862037786
 GameObject:
   m_ObjectHideFlags: 0

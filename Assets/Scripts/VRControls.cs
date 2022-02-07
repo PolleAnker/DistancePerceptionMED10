@@ -8,15 +8,43 @@ public class VRControls : MonoBehaviour
     public ActionBasedController leftController;
     public ActionBasedController rightController;
 
-    // Start is called before the first frame update
-    void Start()
+    [Header("Reference to the object resizer gameobject")]
+    public ObjectResizer objectResizer;
+    private Transform resizeTarget;
+    
+    [Header("Percent of base scale to add")]
+    public float scalePerClick = 0.01f;
+    
+    // Weird new input system must-haves, don't ask
+    void OnEnable()
     {
-        
+        leftController.activateAction.action.Enable();
+        rightController.activateAction.action.Enable();
+    }
+    void OnDisable()
+    {
+        leftController.activateAction.action.Disable();
+        rightController.activateAction.action.Disable();
     }
 
-    // Update is called once per frame
+    void Awake()
+    {
+        resizeTarget = objectResizer.objectToResize.transform;
+    }
+
     void Update()
     {
-        
+        if(leftController.activateActionValue.action.ReadValue<float>() > 0.1){
+            //Debug.Log("Left trigger pressed");
+            if(resizeTarget.localScale.magnitude >= (Vector3.one * 0.1f).magnitude){
+                resizeTarget.localScale -= (Vector3.one * scalePerClick);
+            }
+        }
+        if(rightController.activateActionValue.action.ReadValue<float>() > 0.1){
+            //Debug.Log("Right trigger pressed");
+            if(resizeTarget.localScale.magnitude <= (Vector3.one * 3f).magnitude){
+            resizeTarget.localScale += (Vector3.one * scalePerClick);
+            }
+        }
     }
 }
