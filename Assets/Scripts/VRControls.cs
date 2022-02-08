@@ -34,15 +34,16 @@ public class VRControls : MonoBehaviour
 
     void Update()
     {
+        resizeTarget = objectResizer.objectToResize.transform;
         if(leftController.activateActionValue.action.ReadValue<float>() > 0.1){
             //Debug.Log("Left trigger pressed");
-            if(resizeTarget.localScale.magnitude >= (Vector3.one * 0.1f).magnitude){
+            if(resizeTarget.localScale.magnitude >= (Vector3.one * 0.5f).magnitude){
                 resizeTarget.localScale -= (Vector3.one * scalePerClick);
             }
         }
         if(rightController.activateActionValue.action.ReadValue<float>() > 0.1){
             //Debug.Log("Right trigger pressed");
-            if(resizeTarget.localScale.magnitude <= (Vector3.one * 3f).magnitude){
+            if(resizeTarget.localScale.magnitude <= (Vector3.one * 2.5f).magnitude){
             resizeTarget.localScale += (Vector3.one * scalePerClick);
             }
         }

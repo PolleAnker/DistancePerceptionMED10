@@ -13,7 +13,7 @@ public class ObjectResizer : MonoBehaviour
         if(scaleInaccurately){
             scaleInaccurately = false;
             objectToResize.transform.localScale = Vector3.one;
-            float randomMultiplier = Random.Range(0.8f, 2.1f);
+            float randomMultiplier = Random.Range(0.5f, 2.1f);
             objectToResize.transform.localScale *= randomMultiplier;
             print("Environment scaled by factor " + randomMultiplier);
         }
