@@ -10,8 +10,8 @@ public class TargetSpawner : MonoBehaviour
     private Vector3 feetPosition;
 
     [Header("Settings for target position")]
-    [Range(-3.2f,3.2f)]public float xCoord = 0f;    // Based on the roomsize
-    [Range(-2.6f,2.5f)]public float zCoord = 0f;    // Based on the roomsize
+    [Range(-1.9f,1.9f)]public float xCoord = 0f;    // Based on the roomsize    (AVA lab is -3.2f,3.2f)
+    [Range(-1.9f,1.9f)]public float zCoord = 0f;    // Based on the roomsize    (AVA lab is -2.6f,2.5f)
     private float yCoord = 0f;  // Don't touch, it's grounded
 
     [Header("Press this to spawn or move target")]

@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &170473684
 Transform:
   m_ObjectHideFlags: 0
@@ -630,11 +630,6 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 7779212132400271959, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
---- !u!1 &633124312 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6613902229953499640, guid: b4b62ef6c563e4b4fb12897de840f092, type: 3}
-  m_PrefabInstance: {fileID: 1506146049}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &687806325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -697,6 +692,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4985405715827240724, guid: 6e78d42c6f974c8489c205f88753f3a4, type: 3}
   m_PrefabInstance: {fileID: 687806325}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &734672848 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000010464004664, guid: 59b9bd41096ebf448a5496d3c8c71347, type: 3}
+  m_PrefabInstance: {fileID: 781804114}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &742183544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -707,6 +707,18 @@ PrefabInstance:
     - target: {fileID: 2342235727833461760, guid: 928d676e0812b134d926d15028dfa082, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342235727833461760, guid: 928d676e0812b134d926d15028dfa082, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342235727833461760, guid: 928d676e0812b134d926d15028dfa082, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342235727833461760, guid: 928d676e0812b134d926d15028dfa082, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2342235727833461760, guid: 928d676e0812b134d926d15028dfa082, type: 3}
       propertyPath: m_LocalPosition.x
@@ -871,7 +883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &804150067
 Transform:
   m_ObjectHideFlags: 0
@@ -1557,7 +1569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4332d1550989d2f42b33c2e8a6c51693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToResize: {fileID: 633124312}
+  objectToResize: {fileID: 734672848}
   scaleInaccurately: 0
   resetScale: 0
 --- !u!1 &1267127723
