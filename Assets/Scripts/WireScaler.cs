@@ -13,7 +13,7 @@ public class WireScaler : MonoBehaviour
     void Start()
     {
         initialScale = transform.localScale;
-        print("Scaling object in start method");
+        //print("Scaling object in start method");
         RescaleObject();
     }
 
@@ -23,7 +23,7 @@ public class WireScaler : MonoBehaviour
         // Only do rescaling if either of the two points to scale between has changed
         if(startPoint.transform.hasChanged || endPoint.transform.hasChanged)
         {
-            print("Rescaling object");
+            //print("Rescaling object");
             RescaleObject();
         }
     }

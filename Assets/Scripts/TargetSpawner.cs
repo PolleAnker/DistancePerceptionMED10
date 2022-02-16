@@ -29,6 +29,7 @@ public class TargetSpawner : MonoBehaviour
     [Header("Use these to spawn and remove the start point")]
     public bool setStartPoint = false;
     public bool removeStartPoint = false;
+    public bool distanceBetweenStartAndEnd = false;
 
     // Update is called once per frame
     void Update()
@@ -65,12 +66,12 @@ public class TargetSpawner : MonoBehaviour
                 feetPosition.y = 0f;
                 feetPosition.z = playerPosition.position.z; 
                 distanceToTarget = Vector3.Distance(feetPosition, activeTarget.transform.position);
-                print("The distance between target and player is " + distanceToTarget + " meters");
+                print("The distance between target and player is " + distanceToTarget + " metres");
             }
         }
         ///
 
-        /// Functionality for spawning and deleting start points
+        /// Functionality for spawning and deleting start points (also distance between start and end)
         if(setStartPoint){
             setStartPoint = false;
             if(!activeStartPoint){
@@ -91,6 +92,18 @@ public class TargetSpawner : MonoBehaviour
             removeStartPoint = false;
             if(activeStartPoint){
                 Destroy(activeStartPoint);
+            }
+        }
+
+        if(distanceBetweenStartAndEnd){
+            distanceBetweenStartAndEnd = false;
+            // Only calculate if start and end points are in the environment
+            if(activeTarget && activeStartPoint){
+                float targetToStartDist = Vector3.Distance(activeStartPoint.transform.position, activeTarget.transform.position);
+                print("The distance between the start and end points is " + targetToStartDist + " metres");
+            }
+            else{
+                print("Missing a point; target is " + activeTarget + "; start point is " + activeStartPoint);
             }
         }
         ///
