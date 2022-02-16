@@ -5,7 +5,9 @@ using UnityEngine;
 public class TargetSpawner : MonoBehaviour
 {
     public GameObject targetObject;
+    public GameObject startPointObject;
     private GameObject activeTarget;
+    private GameObject activeStartPoint;
     public Transform playerPosition;
     private Vector3 feetPosition;
 
@@ -24,9 +26,15 @@ public class TargetSpawner : MonoBehaviour
     [Header("Press this to delete the target")]
     public bool removeTarget = false;
 
+    [Header("Use these to spawn and remove the start point")]
+    public bool setStartPoint = false;
+    public bool removeStartPoint = false;
+
     // Update is called once per frame
     void Update()
     {
+
+        /// Functionality for setting and removing a target position
         if(setTarget){
             setTarget = false;
             //Debug.Log("Spawning an object");
@@ -47,7 +55,9 @@ public class TargetSpawner : MonoBehaviour
                 Destroy(activeTarget);
             }
         }
+        ///
 
+        /// Functionality for calculating + printing the distance from a participant to the target point
         if(distance){
             distance = false;
             if(activeTarget){
@@ -58,5 +68,20 @@ public class TargetSpawner : MonoBehaviour
                 print("The distance between target and player is " + distanceToTarget + " meters");
             }
         }
+        ///
+
+        /// Functionality for spawning and deleting start points
+        if(setStartPoint){
+            setStartPoint = false;
+            activeStartPoint = Instantiate(startPointObject, new Vector3(0,0,0), Quaternion.identity);
+            activeStartPoint.transform.eulerAngles = new Vector3(90f, transform.eulerAngles.y, transform.eulerAngles.z);
+        }
+        if(removeStartPoint){
+            removeStartPoint = false;
+            if(activeStartPoint){
+                Destroy(activeStartPoint);
+            }
+        }
+        ///
     }
 }

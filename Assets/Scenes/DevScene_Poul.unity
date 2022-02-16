@@ -1616,12 +1616,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 6624594836581589910, guid: bb4a3af951765b24f85cd05e00cc37c5, type: 3}
+  startPointObject: {fileID: 6624594836581589910, guid: bb4a3af951765b24f85cd05e00cc37c5, type: 3}
   playerPosition: {fileID: 2088192024}
   xCoord: 0
   zCoord: 0
   setTarget: 0
   distance: 0
   removeTarget: 0
+  setStartPoint: 0
+  removeStartPoint: 0
 --- !u!1001 &1506146049
 PrefabInstance:
   m_ObjectHideFlags: 0
