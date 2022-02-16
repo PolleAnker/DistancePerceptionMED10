@@ -73,8 +73,19 @@ public class TargetSpawner : MonoBehaviour
         /// Functionality for spawning and deleting start points
         if(setStartPoint){
             setStartPoint = false;
-            activeStartPoint = Instantiate(startPointObject, new Vector3(0,0,0), Quaternion.identity);
+            if(!activeStartPoint){
+                //activeStartPoint = Instantiate(startPointObject, new Vector3(0,0,0), Quaternion.identity);
+                /// Use this if we want to spawn start point under the participant
+                activeStartPoint = Instantiate(startPointObject, new Vector3(playerPosition.position.x, 0f, playerPosition.position.z), Quaternion.identity);   
+            }
+            else{
+                // activeStartPoint.transform.position = new Vector3(0,0,0);
+                activeStartPoint.transform.position = new Vector3(playerPosition.position.x, 0f, playerPosition.position.z);
+            }
+
+            // Rotate object to face up
             activeStartPoint.transform.eulerAngles = new Vector3(90f, transform.eulerAngles.y, transform.eulerAngles.z);
+            
         }
         if(removeStartPoint){
             removeStartPoint = false;
