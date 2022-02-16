@@ -12,8 +12,8 @@ public class BallRoller : MonoBehaviour
     [Header("Press this to reset the ball")]
     public bool resetBall = false;
 
-    [Header("Select Force")]
-    [Range(0f,9f)]public float force = 0f;    
+    [Header("Select Force (9.5 will make it go close to the tables)")]
+    [Range(0f,9.5f)]public float force = 0f;    
 
     [Header("Press this to roll the ball")]
     public bool pushBall = false;

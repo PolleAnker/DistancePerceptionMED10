@@ -1455,6 +1455,7 @@ MonoBehaviour:
   removeTarget: 0
   setStartPoint: 0
   removeStartPoint: 0
+  distanceBetweenStartAndEnd: 0
 --- !u!1 &1350330837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,7 +1769,7 @@ MonoBehaviour:
   startPoint: {fileID: 641081176}
   ball: {fileID: 2069992333}
   resetBall: 0
-  force: 9
+  force: 1.79
   pushBall: 0
   distance: 0
 --- !u!4 &2033083430
