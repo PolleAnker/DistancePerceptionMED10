@@ -695,6 +695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftController: {fileID: 1926577049}
   rightController: {fileID: 48414750}
+  resizingEnabled: 0
   objectResizer: {fileID: 0}
   scalePerClick: 0.005
 --- !u!114 &384647946
@@ -1245,6 +1246,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2122f5cb47c2359409eb1752b54feae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stickToResize: {fileID: 1221132557}
+  resetScale: 0
+  leftController: {fileID: 1926577049}
+  rightController: {fileID: 48414750}
+  objectResizer: {fileID: 0}
+  scalePerClick: 0.001
 --- !u!4 &1559912669
 Transform:
   m_ObjectHideFlags: 0
