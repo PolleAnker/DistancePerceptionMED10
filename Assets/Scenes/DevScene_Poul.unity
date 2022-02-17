@@ -605,6 +605,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 716966847}
     - target: {fileID: 6991002747152791036, guid: d157c457dc57504469e1daab0d594166, type: 3}
+      propertyPath: endTower
+      value: 
+      objectReference: {fileID: 716966847}
+    - target: {fileID: 6991002747152791036, guid: d157c457dc57504469e1daab0d594166, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 2088192024}

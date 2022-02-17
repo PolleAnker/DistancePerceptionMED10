@@ -95,6 +95,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTowerPrefab: {fileID: 1404834495209095684, guid: ff63e57ea4ca6394f9c9cda2ca4aabfa, type: 3}
-  endPoint: {fileID: 0}
-  setStartTower: 0
+  spawnStartTower: 0
+  endTower: {fileID: 0}
+  xCoord: 0
+  zCoord: 0
+  targetIndicator: {fileID: 6624594836581589910, guid: bb4a3af951765b24f85cd05e00cc37c5, type: 3}
+  setTarget: 0
+  removeTarget: 0
+  printDistance: 0
   mainCamera: {fileID: 0}
