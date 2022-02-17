@@ -94,5 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b37a75320f1b646880d4511b49fe9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPoint: {fileID: 0}
+  startTowerPrefab: {fileID: 1404834495209095684, guid: ff63e57ea4ca6394f9c9cda2ca4aabfa, type: 3}
   endPoint: {fileID: 0}
+  setStartTower: 0
+  mainCamera: {fileID: 0}
