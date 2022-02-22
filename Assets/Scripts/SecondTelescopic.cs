@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TelescopicFunctionalities : MonoBehaviour
+public class SecondTelescopic : MonoBehaviour
 {
      //public ActionBasedController leftController;
     //public ActionBasedController rightController;
@@ -10,6 +10,7 @@ public class TelescopicFunctionalities : MonoBehaviour
     public GameObject[] rodMetals;
     public GameObject rodStart;
     public GameObject rodEnd;
+    public GameObject positionTarget;
 
     private float rodYPos;
     private float newRodYPos;
@@ -69,46 +70,46 @@ public class TelescopicFunctionalities : MonoBehaviour
         {
             increaseRod = false;
 
-            for(int i = 0; i < rodMetals.Length; i++)
-            {
-                rodYPos = rodMetals[i].transform.localPosition.y; 
+            //if(positionTarget.transform.localPosition.y < rodEnd.transform.position.y + 0.01f)
+            //{
+                positionTarget.transform.localPosition = new Vector3(positionTarget.transform.localPosition.x, positionTarget.transform.localPosition.y - 0.01f , positionTarget.transform.localPosition.z);
 
-                if(rodYPos > rodYStartPos[i] - 0.10f) //if the current metal piece's position is NOT moved 10cm since the starting point
+                for(int i = 0; i < rodMetals.Length; i++)
                 {
-                    newRodYPos = rodMetals[i].transform.localPosition.y - 0.01f; // find new position with increased length of 1cm
+                    rodYPos = rodMetals[i].transform.localPosition.y; 
 
-                    //print("#Increase# This is piece number " + (i+1) + " with position " + rodMetals[i].transform.localPosition.y);
-                    print("Metal Piece Number: " + (i+1));
-                    print("Starting Position: " + rodYStartPos[i]);
-                    print("Current Position: " + newRodYPos);
-                    print("###########################################");
+                    if(rodYPos > rodYStartPos[i] - 0.10f) //if the current metal piece's position is NOT moved 10cm since the starting point
+                    {
+                        print("#Increase# This is piece number " + (i+1) + " with position " + rodMetals[i].transform.localPosition.y);
 
-                    rodMetals[i].transform.localPosition = new Vector3(rodMetals[i].transform.localPosition.x, newRodYPos, rodMetals[i].transform.localPosition.z); // increase length with 1cm
+                        rodMetals[i].transform.localPosition = positionTarget.transform.localPosition; // increase length with 1cm
 
-                    break;
+                        break;
+                    }
                 }
-            }
+            //}
         }
 
         if(decreaseRod) //if buttonpress (needs to be changed to the quest grip-thingy)
         {
             decreaseRod = false;
-            print("Decrease was pressed...");
 
-            for (int j = rodMetals.Length; j --> 0; )
+            if(positionTarget.transform.localPosition.y <= rodYStartPos[0])
             {
-                print("Decrease is in the for-loop at " + j);
-                rodYPos = rodMetals[j].transform.localPosition.y; 
+                positionTarget.transform.localPosition = new Vector3(positionTarget.transform.localPosition.x, positionTarget.transform.localPosition.y + 0.01f , positionTarget.transform.localPosition.z);
 
-                if(rodYPos < rodYStartPos[j]) //if the current metal piece's position is not back to its starting point
+                for (int j = rodMetals.Length; j --> 0; )
                 {
-                    newRodYPos = rodMetals[j].transform.localPosition.y + 0.01f; // find new position with decreased length of 1cm
+                    rodYPos = rodMetals[j].transform.localPosition.y; 
 
-                    print("#Decrease# This is piece number " + (j+1) + " with position " + rodMetals[j].transform.localPosition.y);
+                    if(rodYPos < rodYStartPos[j]) //if the current metal piece's position is not back to its starting point
+                    {
+                        print("#Decrease# This is piece number " + (j+1) + " with position " + rodMetals[j].transform.localPosition.y);
 
-                    rodMetals[j].transform.localPosition = new Vector3(rodMetals[j].transform.localPosition.x, newRodYPos, rodMetals[j].transform.localPosition.z); // decrease length with 1cm
+                        rodMetals[j].transform.localPosition = positionTarget.transform.localPosition; // decrease length with 1cm
 
-                    break;
+                        break;
+                    }
                 }
             }
         }
