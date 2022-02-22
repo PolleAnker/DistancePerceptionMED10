@@ -31,10 +31,10 @@ public class StickExtender : MonoBehaviour
     void Update()
     {
         //stickToResize = objectResizer.objectToResize.transform;
-        if (leftController.activateActionValue.action.ReadValue<float>() > 0.1)
+        if (leftController.activateActionValue.action.ReadValue<float>() > 0.1f)
         {
             //Debug.Log("Left trigger pressed");
-            if (stickToResize.localScale.magnitude >= (Vector3.one * 0.5f).magnitude)
+            if (stickToResize.localScale.magnitude >= 0.7f) //set to minimum length of the small stick to 70cm ish
             {
                 stickToResize.localScale -= new Vector3(0, scalePerClick, 0);
             }
@@ -42,7 +42,7 @@ public class StickExtender : MonoBehaviour
         if (rightController.activateActionValue.action.ReadValue<float>() > 0.1)
         { 
             //Debug.Log("Right trigger pressed");
-            if (stickToResize.localScale.magnitude <= (Vector3.one * 2.5f).magnitude)
+            if (stickToResize.localScale.magnitude <= 1.23f) //set to the maximum length of the small stich to 123cm ish 
             {
                 stickToResize.localScale += new Vector3(0, scalePerClick, 0);
             }
