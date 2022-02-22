@@ -75,7 +75,7 @@ public class TelescopicFunctionalities : MonoBehaviour
                 {
                     newRodYPos = rodMetals[i].transform.localPosition.y - 0.01f; // find new position with increased length of 1cm
 
-                    print("This is piece number " + i + " with position " + rodMetals[i].transform.localPosition.y );
+                    print("This is piece number " + i + " with position " + rodMetals[i].transform.localPosition.y);
 
                     rodMetals[i].transform.localPosition = new Vector3(rodMetals[i].transform.localPosition.x, newRodYPos, rodMetals[i].transform.localPosition.z); // increase length with 1cm
 
