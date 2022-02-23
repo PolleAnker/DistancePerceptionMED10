@@ -88,7 +88,7 @@ public class TelescopicFunctionalities : MonoBehaviour
 
                 if(rodYPos > rodYStartPos[i] - 0.10f) //if the current metal piece's position is NOT moved 10cm since the starting point
                 {
-                    newRodYPos = rodMetals[i].transform.localPosition.y - 0.01f; // find new position with increased length of 1cm
+                    newRodYPos = rodMetals[i].transform.localPosition.y - 0.001f; // find new position with increased length of 1cm
 
                     //print("#Increase# This is piece number " + (i+1) + " with position " + rodMetals[i].transform.localPosition.y);
                     print("Metal Piece Number: " + (i+1));
@@ -131,7 +131,7 @@ public class TelescopicFunctionalities : MonoBehaviour
                 {
                     if(rodYPos < rodMetals[j-1].transform.localPosition.y - 0.002) //if the current metal piece's position is not back to its starting point
                     {
-                        newRodYPos = rodMetals[j].transform.localPosition.y + 0.01f; // find new position with decreased length of 1cm
+                        newRodYPos = rodMetals[j].transform.localPosition.y + 0.001f; // find new position with decreased length of 1cm
 
                         rodMetals[j].transform.localPosition = new Vector3(rodMetals[j].transform.localPosition.x, newRodYPos, rodMetals[j].transform.localPosition.z); // decrease length with 1cm
 
