@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class TelescopicFunctionalities : MonoBehaviour
 {
-     //public ActionBasedController leftController;
-    //public ActionBasedController rightController;
+    public ActionBasedController rightController;
+    public ActionBasedController leftController;
 
     public GameObject[] rodMetals;
     public GameObject rodStart;
@@ -13,17 +14,18 @@ public class TelescopicFunctionalities : MonoBehaviour
 
     private float rodYPos;
     private float newRodYPos;
-    private float[] rodYStartPos = new float [6]; //Add extras if extra metal pieces are added to the rod
-    private int rodArrayMax = 5;
+    private float[] rodYStartPos = new float [19]; //Add extras if extra metal pieces are added to the rod
+    private int rodArrayMax = 18;
+    private float childPos;
 
 
     [Header("Reset Rod")]
     public bool resetRod = false;
 
-    [Header("Increase Rod")]
+    [Header("Increase Rod (can be controlled in VR as well)")]
     public bool increaseRod = false;
 
-    [Header("Decrease Rod")]
+    [Header("Decrease Rod (can be controlled in VR as well)")]
     public bool decreaseRod = false;
 
     [Header("Print Rod Length")]
@@ -33,35 +35,46 @@ public class TelescopicFunctionalities : MonoBehaviour
     void Start() 
     {
         rodYStartPos[0] = rodMetals[0].transform.localPosition.y;
-        rodYStartPos[1] = rodMetals[1].transform.localPosition.y;
-        rodYStartPos[2] = rodMetals[2].transform.localPosition.y;
-        rodYStartPos[3] = rodMetals[3].transform.localPosition.y;
-        rodYStartPos[4] = rodMetals[4].transform.localPosition.y;
-        rodYStartPos[5] = rodMetals[5].transform.localPosition.y;
 
     }
 
     void OnEnable()
     {
-        //leftController.activateAction.action.Enable();
-        //rightController.activateAction.action.Enable();
+        rightController.activateAction.action.Enable();
+        leftController.activateAction.action.Enable();
     }
     void OnDisable()
     {
-        //leftController.activateAction.action.Disable();
-        //rightController.activateAction.action.Disable();
+        rightController.activateAction.action.Disable();
+        leftController.activateAction.action.Disable();
     }
 
     // Update is called once per frame
     void Update()
     {
+         if (rightController.activateActionValue.action.ReadValue<float>() > 0.1)
+        { 
+            increaseRod = true;
+        }
+
+        if (leftController.activateActionValue.action.ReadValue<float>() > 0.1f)
+        {
+            decreaseRod = true;
+        }
+        
         if(resetRod)
         {
             resetRod = false;
-            
-            for(int i = 0; i < rodMetals.Length; i++)
+            for(int i = 1; i < rodMetals.Length; i++) //set all metal pieces back to their original position
             {
-                rodMetals[i].transform.localPosition = new Vector3(rodMetals[i].transform.localPosition.x, rodYStartPos[i], rodMetals[i].transform.localPosition.z);
+                rodMetals[0].transform.localPosition = new Vector3(rodMetals[0].transform.localPosition.x, rodYStartPos[0], rodMetals[0].transform.localPosition.z); //resetting the first metal piece as it is not included in the for-loop
+
+                rodYPos = rodMetals[i].transform.localPosition.y; 
+                if(rodYPos <=  rodMetals[i-1].transform.localPosition.y)
+                {
+                    childPos = rodMetals[i-1].transform.localPosition.y - 0.001f;
+                    rodMetals[i].transform.localPosition = new Vector3(rodMetals[i].transform.localPosition.x, childPos, rodMetals[i].transform.localPosition.z);
+                }
             }
         }
 
@@ -81,11 +94,27 @@ public class TelescopicFunctionalities : MonoBehaviour
                     print("Metal Piece Number: " + (i+1));
                     print("Starting Position: " + rodYStartPos[i]);
                     print("Current Position: " + newRodYPos);
-                    print("###########################################");
 
                     rodMetals[i].transform.localPosition = new Vector3(rodMetals[i].transform.localPosition.x, newRodYPos, rodMetals[i].transform.localPosition.z); // increase length with 1cm
 
-                    break;
+                    break; //breaks from the for-loop
+                }
+                else
+                {
+                    if(i < rodArrayMax)
+                    {
+                        rodYStartPos[i+1] = rodMetals[i].transform.localPosition.y; //setting the starting point for the next metal piece to be moved
+                    }
+                }
+            }
+
+            for(int i = 1; i < rodMetals.Length; i++) //check if any "fake parent" metal piece have moved and make the "fake child" follow
+            {
+                rodYPos = rodMetals[i].transform.localPosition.y; 
+                if(rodYPos >=  rodMetals[i-1].transform.localPosition.y)
+                {
+                    childPos = rodMetals[i-1].transform.localPosition.y - 0.001f;
+                    rodMetals[i].transform.localPosition = new Vector3(rodMetals[i].transform.localPosition.x, childPos, rodMetals[i].transform.localPosition.z);
                 }
             }
         }
@@ -93,23 +122,58 @@ public class TelescopicFunctionalities : MonoBehaviour
         if(decreaseRod) //if buttonpress (needs to be changed to the quest grip-thingy)
         {
             decreaseRod = false;
-            print("Decrease was pressed...");
 
             for (int j = rodMetals.Length; j --> 0; )
             {
-                print("Decrease is in the for-loop at " + j);
                 rodYPos = rodMetals[j].transform.localPosition.y; 
+                
+                if(j > 0)
+                {
+                    if(rodYPos < rodMetals[j-1].transform.localPosition.y - 0.002) //if the current metal piece's position is not back to its starting point
+                    {
+                        newRodYPos = rodMetals[j].transform.localPosition.y + 0.01f; // find new position with decreased length of 1cm
 
-                if(rodYPos < rodYStartPos[j]) //if the current metal piece's position is not back to its starting point
+                        rodMetals[j].transform.localPosition = new Vector3(rodMetals[j].transform.localPosition.x, newRodYPos, rodMetals[j].transform.localPosition.z); // decrease length with 1cm
+
+                        for(int i = j+1; i < rodMetals.Length; i++) //check if any "fake parent" metal piece have moved and make the "fake child" follow
+                        {
+                            rodYPos = rodMetals[i].transform.localPosition.y; 
+
+                            if(rodYPos < rodMetals[i-1].transform.localPosition.y - 0.002)
+                            {
+                            childPos = rodMetals[i-1].transform.localPosition.y - 0.001f;
+                                rodMetals[i].transform.localPosition = new Vector3(rodMetals[i].transform.localPosition.x, childPos, rodMetals[i].transform.localPosition.z);
+                            }
+                        }
+
+                        break; //breaks from the for-loop
+                    }
+                }
+                else if(rodYPos < rodYStartPos[0])
                 {
                     newRodYPos = rodMetals[j].transform.localPosition.y + 0.01f; // find new position with decreased length of 1cm
 
-                    print("#Decrease# This is piece number " + (j+1) + " with position " + rodMetals[j].transform.localPosition.y);
-
                     rodMetals[j].transform.localPosition = new Vector3(rodMetals[j].transform.localPosition.x, newRodYPos, rodMetals[j].transform.localPosition.z); // decrease length with 1cm
 
-                    break;
+                    if(rodYPos > rodYStartPos[0])
+                    {
+                        rodMetals[j].transform.localPosition = new Vector3(rodMetals[j].transform.localPosition.x, rodYStartPos[0], rodMetals[j].transform.localPosition.z);
+                    }
+
+                    for(int i = j+1; i < rodMetals.Length; i++) //check if any "fake parent" metal piece have moved and make the "fake child" follow
+                    {
+                        rodYPos = rodMetals[i].transform.localPosition.y; 
+
+                        if(rodYPos < rodMetals[i-1].transform.localPosition.y - 0.002)
+                        {
+                        childPos = rodMetals[i-1].transform.localPosition.y - 0.001f;
+                            rodMetals[i].transform.localPosition = new Vector3(rodMetals[i].transform.localPosition.x, childPos, rodMetals[i].transform.localPosition.z);
+                        }
+                    }
+
+                    break; //breaks from the for-loop
                 }
+                
             }
         }
 
