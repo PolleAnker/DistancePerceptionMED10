@@ -480,9 +480,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edf698a9c287a7b42aa1a58ec46298d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  X_Axis: 0
   distance: {x: 0, y: 1, z: 1}
   cubeR: {fileID: 129649319}
   cubeL: {fileID: 1194048378}
+  cam: {fileID: 965518842}
 --- !u!4 &861569605
 Transform:
   m_ObjectHideFlags: 0
@@ -491,7 +493,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861569603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.9783978, y: -2.5976985, z: 21.468498}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 129649320}
@@ -499,6 +501,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &965518842 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7301369500010110339, guid: 2bdab0844879aad428fc79f5a0e5af9e, type: 3}
+  m_PrefabInstance: {fileID: 129509575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1194048378
 GameObject:
   m_ObjectHideFlags: 0
