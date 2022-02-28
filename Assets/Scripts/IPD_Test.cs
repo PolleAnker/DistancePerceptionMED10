@@ -13,6 +13,8 @@ public class IPD_Test : MonoBehaviour
     // Start is called before the first frame update
     public GameObject cubeR, cubeL;
     public Camera cam;
+    [SerializeField]
+    private bool printDist;
     void Start()
     {
      
@@ -23,5 +25,11 @@ public class IPD_Test : MonoBehaviour
     {
         cubeR.transform.position = new Vector3(X_Axis, cam.transform.position.y, distance.z);
         cubeL.transform.position = new Vector3(-X_Axis, cam.transform.position.y, distance.z);
+
+        if (printDist)
+        {
+            float distance = Vector3.Distance(cubeR.transform.position, cubeL.transform.position);
+            print("Maybe IPD is: " + distance);
+        }
     }
 }
