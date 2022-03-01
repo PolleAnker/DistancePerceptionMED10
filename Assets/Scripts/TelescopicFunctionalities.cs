@@ -131,7 +131,7 @@ public class TelescopicFunctionalities : MonoBehaviour
                 {
                     if(rodYPos < rodMetals[j-1].transform.localPosition.y - 0.002) //if the current metal piece's position is not back to its starting point
                     {
-                        newRodYPos = rodMetals[j].transform.localPosition.y + 0.001f; // find new position with decreased length of 1cm
+                        newRodYPos = rodMetals[j].transform.localPosition.y + 0.001f; // find new position with decreased length of 0.1cm
 
                         rodMetals[j].transform.localPosition = new Vector3(rodMetals[j].transform.localPosition.x, newRodYPos, rodMetals[j].transform.localPosition.z); // decrease length with 1cm
 
@@ -151,7 +151,7 @@ public class TelescopicFunctionalities : MonoBehaviour
                 }
                 else if(rodYPos < rodYStartPos[0])
                 {
-                    newRodYPos = rodMetals[j].transform.localPosition.y + 0.01f; // find new position with decreased length of 1cm
+                    newRodYPos = rodMetals[j].transform.localPosition.y + 0.001f; // find new position with decreased length of 0.1cm
 
                     rodMetals[j].transform.localPosition = new Vector3(rodMetals[j].transform.localPosition.x, newRodYPos, rodMetals[j].transform.localPosition.z); // decrease length with 1cm
 

@@ -2303,7 +2303,7 @@ MonoBehaviour:
   rodStart: {fileID: 1625130096}
   rodEnd: {fileID: 531956381}
   resetRod: 0
-  increaseRod: 1
+  increaseRod: 0
   decreaseRod: 0
   printRodLength: 0
 --- !u!4 &1559912669
