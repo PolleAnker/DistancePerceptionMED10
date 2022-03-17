@@ -420,9 +420,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1000010354828634, guid: 59b9bd41096ebf448a5496d3c8c71347, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1000010464004664, guid: 59b9bd41096ebf448a5496d3c8c71347, type: 3}
       propertyPath: m_Name
       value: Avalab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010464004664, guid: 59b9bd41096ebf448a5496d3c8c71347, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010958586220, guid: 59b9bd41096ebf448a5496d3c8c71347, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000011341951848, guid: 59b9bd41096ebf448a5496d3c8c71347, type: 3}
       propertyPath: m_LocalPosition.x
@@ -504,6 +516,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4602a67655ff9f94c815d795e5865f2d, type: 2}
+    - target: {fileID: 108000011057418092, guid: 59b9bd41096ebf448a5496d3c8c71347, type: 3}
+      propertyPath: m_Intensity
+      value: 4.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59b9bd41096ebf448a5496d3c8c71347, type: 3}
 --- !u!1 &907898771
@@ -864,8 +880,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1267127724}
   - component: {fileID: 1267127725}
+  - component: {fileID: 1267127726}
   m_Layer: 0
-  m_Name: TargetSpawer
+  m_Name: TestManagement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -908,6 +925,25 @@ MonoBehaviour:
   setStartPoint: 0
   removeStartPoint: 0
   distanceBetweenStartAndEnd: 0
+--- !u!114 &1267127726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267127723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b63a11d16d4c8a741b94bee483997d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directionalLight: {fileID: 1456599884}
+  flipSwitch: 0
+--- !u!108 &1456599884 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 108000011057418092, guid: 59b9bd41096ebf448a5496d3c8c71347, type: 3}
+  m_PrefabInstance: {fileID: 781804114}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1686240551
 GameObject:
   m_ObjectHideFlags: 0
