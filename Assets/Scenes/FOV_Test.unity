@@ -1036,6 +1036,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FOVPrefabV2
       objectReference: {fileID: 0}
+    - target: {fileID: 4347139302781740694, guid: 5864b155326f7b345b23948862793363, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4347139302781740695, guid: 5864b155326f7b345b23948862793363, type: 3}
       propertyPath: cam
       value: 
