@@ -23,6 +23,7 @@ public class ObjectOpacity: MonoBehaviour
     {
         if(fade)
         {
+            blinder.enabled = true;
             if(blinderMat.color.a <= 0.1f)
             {
                 StartCoroutine(FadeFromTo(transparentColour, opaqueColour, 1f));    // Fade from transparent to non-transparent
@@ -44,5 +45,8 @@ public class ObjectOpacity: MonoBehaviour
             yield return null;
         }
         blinderMat.color = toColour;    // Make sure the colour is set to the exact value we want (otherwise it'll be 0.001 or smth off)
+        if(blinderMat.color.a == 0){
+            blinder.enabled = false;
+        }
     }
 }
