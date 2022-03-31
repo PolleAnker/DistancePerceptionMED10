@@ -10,7 +10,7 @@ public class ObjectOpacity: MonoBehaviour
     private Color transparentColour = new Color(0,0,0,0);
 
     [Header("Press to go between tranparent and opaque")]
-    public bool fade = false;    
+    public bool BlindParticipant = false;    
 
     // Start is called before the first frame update
     void Awake()
@@ -21,7 +21,7 @@ public class ObjectOpacity: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(fade)
+        if(BlindParticipant)
         {
             blinder.enabled = true;
             if(blinderMat.color.a <= 0.1f)
@@ -36,7 +36,7 @@ public class ObjectOpacity: MonoBehaviour
     }
 
     IEnumerator FadeFromTo(Color fromColour, Color toColour, float duration) {
-        fade = false;   // Make sure the fade bool is set to false / reset when starting fade
+        BlindParticipant = false;   // Make sure the fade bool is set to false / reset when starting fade
 
         for (float t=0f;t<duration;t+=Time.deltaTime) 
         {
