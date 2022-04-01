@@ -5,6 +5,7 @@ using UnityEngine;
 public class BlindWalkingTarget : MonoBehaviour
 {
     public GameObject target;
+    private ObjectOpacity opacityScript;
     public Transform startPosition;
     public Transform playerPosition;
     private Vector3 feetPosition;
@@ -97,15 +98,17 @@ public class BlindWalkingTarget : MonoBehaviour
             Target3 = false;
             Target4 = false;
             Target5 = false;
+           
         }
 
         if(walkedDistance){
             walkedDistance = false;
             if(target.activeSelf){
+                
                 feetPosition.x = playerPosition.position.x;
                 feetPosition.y = 0f;
                 feetPosition.z = playerPosition.position.z; 
-                distanceToTarget = Vector3.Distance(feetPosition, target.transform.position);
+                distanceToTarget = Vector3.Distance(feetPosition, startPosition.transform.position);
                 print("The participant walked " + distanceToTarget + " metres");
             }
         }
