@@ -8,7 +8,8 @@ public class FOVTest : MonoBehaviour
     [Header("XR Variables")]
     public ActionBasedController leftController;
     public ActionBasedController rightController;
-    public Camera cam;
+    public Canvas uiCanvas;
+    private Camera cam;
 
     [Header("FOV Elements")]
     public RectTransform leftLine;
@@ -23,6 +24,11 @@ public class FOVTest : MonoBehaviour
     private float fovAngle;
     private Vector3 side1 = Vector3.zero;
     private Vector3 side2 = Vector3.zero;
+
+    private void Awake() {
+        cam = Camera.main;
+        uiCanvas.worldCamera = cam;
+    }
 
     void OnEnable()
     {

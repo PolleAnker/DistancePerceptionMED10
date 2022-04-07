@@ -852,7 +852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftController: {fileID: 0}
   rightController: {fileID: 0}
-  cam: {fileID: 0}
+  uiCanvas: {fileID: 8925165493770319395}
   leftLine: {fileID: 8925165494919879732}
   rightLine: {fileID: 8925165494432192312}
   topLine: {fileID: 8925165493579130758}
@@ -860,7 +860,6 @@ MonoBehaviour:
   fovAngleText: {fileID: 8925165494997324499}
   vertical: 0
   horizontal: 0
-  updateAngle: 1
 --- !u!1 &8925165494919879733
 GameObject:
   m_ObjectHideFlags: 0
