@@ -162,8 +162,8 @@ Transform:
   - {fileID: 2135536164}
   - {fileID: 1829082041}
   - {fileID: 1035538742}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 543450652849993475}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &32304624
 GameObject:
@@ -5002,6 +5002,7 @@ Transform:
   - {fileID: 1103973589}
   - {fileID: 771169628}
   - {fileID: 364913701}
+  - {fileID: 1372176}
   m_Father: {fileID: 1474414509}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7870,6 +7871,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 2476490944721499140, guid: e2e6fe3755ea8bc41970153cf0d083a4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2960434818127031998, guid: e2e6fe3755ea8bc41970153cf0d083a4, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -9596,6 +9601,10 @@ PrefabInstance:
     - target: {fileID: 6467562376145132336, guid: b40a9a5eae88087428674da2dede58a7, type: 3}
       propertyPath: m_Name
       value: MediumRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467562376145132336, guid: b40a9a5eae88087428674da2dede58a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b40a9a5eae88087428674da2dede58a7, type: 3}
