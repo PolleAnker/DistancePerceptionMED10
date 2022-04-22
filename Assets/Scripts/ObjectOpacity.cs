@@ -9,8 +9,7 @@ public class ObjectOpacity: MonoBehaviour
     private Color opaqueColour = new Color(0,0,0,1);
     private Color transparentColour = new Color(0,0,0,0);
 
-    [Header("Press to go between tranparent and opaque")]
-    public bool BlindParticipant = false;    
+    [HideInInspector] public bool BlindParticipant = false;    
 
     // Start is called before the first frame update
     void Awake()

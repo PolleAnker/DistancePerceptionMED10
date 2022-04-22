@@ -1022,7 +1022,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532228414}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.013, y: 0, z: -1.108}
+  m_LocalPosition: {x: -0.027, y: 0, z: -0.429}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1490495612}
@@ -2705,8 +2705,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1267127724}
-  - component: {fileID: 1267127727}
   - component: {fileID: 1267127725}
+  - component: {fileID: 1267127726}
   m_Layer: 0
   m_Name: TestManagement
   m_TagString: Untagged
@@ -2737,21 +2737,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1267127723}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bdc318248e6aa146941c639618a7b7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bb3a16d7930ecc4e905ae178040b136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 532228414}
+  opacityScript: {fileID: 1267127726}
+  targetPosition: {fileID: 532228414}
   startPosition: {fileID: 2040379989}
   playerPosition: {fileID: 2088192024}
   walkedDistance: 0
-  targetDistance: 0
-  Target1: 0
-  Target2: 0
-  Target3: 0
-  Target4: 0
-  Target5: 0
-  removeTarget: 0
---- !u!114 &1267127727
+  blindParticipant: 0
+  target: 0
+--- !u!114 &1267127726
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3398,7 +3394,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1686240551}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -5.2, y: 0, z: -1}
+  m_LocalPosition: {x: -4.794, y: 0, z: -0.5}
   m_LocalScale: {x: 1.0443088, y: 1, z: 0.8249849}
   m_Children:
   - {fileID: 1862037787}
