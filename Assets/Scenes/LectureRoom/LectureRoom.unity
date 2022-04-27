@@ -2151,6 +2151,11 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 875253871413052681, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!1 &909756052 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6467562376145132336, guid: b40a9a5eae88087428674da2dede58a7, type: 3}
+  m_PrefabInstance: {fileID: 5519099484396523152}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &966948864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2622,6 +2627,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1203744296 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8960636823905250250, guid: aee34bc5224556144b1afeebaaf350e6, type: 3}
+  m_PrefabInstance: {fileID: 2465452714438339034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1209887976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2744,9 +2754,14 @@ MonoBehaviour:
   targetPosition: {fileID: 532228414}
   startPosition: {fileID: 2040379989}
   playerPosition: {fileID: 2088192024}
-  walkedDistance: 0
-  blindParticipant: 0
   target: 0
+  room: 0
+  transitionalRoom: {fileID: 919132148930424249}
+  smallRoom: {fileID: 1282646906}
+  mediumRoom: {fileID: 909756052}
+  largeRoom: {fileID: 1203744296}
+  blindParticipant: 0
+  walkedDistance: 0
 --- !u!114 &1267127726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2761,6 +2776,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blinder: {fileID: 1093683596}
   BlindParticipant: 0
+--- !u!1 &1282646906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2476490944721499140, guid: e2e6fe3755ea8bc41970153cf0d083a4, type: 3}
+  m_PrefabInstance: {fileID: 3701669313414197266}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1334834281
 GameObject:
   m_ObjectHideFlags: 0

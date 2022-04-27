@@ -21,9 +21,17 @@ public class FinalTestManagement : MonoBehaviour
     private Vector3 distance8 = new Vector3 (0f, 0f, -10.8f);
 
     public enum targetsEnum {none, Target1, Target2, Target3, Target4, Target5, Target6, Target7, Target8};
+    public enum roomSize{Transitional, Small, Medium, Large};
 
     [Header("Choose target from the list to activate it :)")]
     public targetsEnum target;
+    
+    [Header("Choose room from the list to activate it :D")]
+    public roomSize room;
+    public GameObject transitionalRoom;
+    public GameObject smallRoom;
+    public GameObject mediumRoom;
+    public GameObject largeRoom;
 
     [Header("Blind Participant")]
     public bool blindParticipant;
@@ -32,6 +40,85 @@ public class FinalTestManagement : MonoBehaviour
     public bool walkedDistance = false;
 
     void Update()
+    {
+        SetTarget();
+        SetRoom();
+
+        if(blindParticipant)
+        {
+            opacityScript.BlindParticipant = blindParticipant;
+    
+            targetPosition.transform.position = startPosition.position;
+
+            if (targetPosition.activeSelf) 
+            {
+                targetPosition.SetActive(false);
+            }
+
+            target = targetsEnum.none;
+
+            blindParticipant = false;
+        }
+
+        if(walkedDistance)
+        {
+            walkedDistance = false;
+            if(targetPosition.activeSelf)
+            {
+                
+                feetPosition.x = playerPosition.position.x;
+                feetPosition.y = 0f;
+                feetPosition.z = playerPosition.position.z; 
+                distanceToTarget = Vector3.Distance(feetPosition, startPosition.transform.position);
+                print("The participant walked " + distanceToTarget + " metres");
+            }
+        }
+    }
+
+    /// <summary>
+    /// This function sets the room.
+    /// </summary>
+    public void SetRoom()
+    {
+        if (room == roomSize.Transitional)
+        {
+            transitionalRoom.SetActive(true);
+            smallRoom.SetActive(false);
+            mediumRoom.SetActive(false);
+            largeRoom.SetActive(false);
+        }
+
+        if(room == roomSize.Small)
+        {
+            smallRoom.SetActive(true);
+            transitionalRoom.SetActive(false);
+            mediumRoom.SetActive(false);
+            largeRoom.SetActive(false);
+        }
+
+        if(room == roomSize.Medium)
+        {
+            mediumRoom.SetActive(true);
+            transitionalRoom.SetActive(false);
+            smallRoom.SetActive(false);
+            largeRoom.SetActive(false);
+        }
+
+        if(room == roomSize.Large)
+        {
+            largeRoom.SetActive(true);
+            transitionalRoom.SetActive(false);
+            smallRoom.SetActive(false);
+            mediumRoom.SetActive(false);
+        }
+    }
+
+
+
+    /// <summary>
+    /// This function has the if-statements for setting and moving the target point in the room.
+    /// </summary>
+    public void SetTarget()
     {
         if (target == targetsEnum.none)
         {
@@ -85,33 +172,6 @@ public class FinalTestManagement : MonoBehaviour
         {
             targetPosition.transform.position = startPosition.position + distance8;
             targetPosition.SetActive(true);
-        }
-
-        if(blindParticipant){
-            opacityScript.BlindParticipant = blindParticipant;
-    
-            targetPosition.transform.position = startPosition.position;
-
-            if (targetPosition.activeSelf) 
-            {
-                targetPosition.SetActive(false);
-            }
-
-            target = targetsEnum.none;
-
-            blindParticipant = false;
-        }
-
-        if(walkedDistance){
-            walkedDistance = false;
-            if(targetPosition.activeSelf){
-                
-                feetPosition.x = playerPosition.position.x;
-                feetPosition.y = 0f;
-                feetPosition.z = playerPosition.position.z; 
-                distanceToTarget = Vector3.Distance(feetPosition, startPosition.transform.position);
-                print("The participant walked " + distanceToTarget + " metres");
-            }
         }
     }
 }
