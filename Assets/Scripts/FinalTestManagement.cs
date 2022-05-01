@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Logging_System;
 
 public class FinalTestManagement : MonoBehaviour
 {
     public ObjectOpacity opacityScript;
+    public LoggingController loggingController;
     public GameObject targetPosition;
     public Transform startPosition;
     public Transform playerPosition;
@@ -38,6 +40,11 @@ public class FinalTestManagement : MonoBehaviour
 
     [Header("Measure Walk")]
     public bool walkedDistance = false;
+
+    void Start()
+    {
+        loggingController.StartLogging();
+    }
 
     void Update()
     {
