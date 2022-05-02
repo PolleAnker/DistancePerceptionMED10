@@ -2847,7 +2847,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1267127723}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bb3a16d7930ecc4e905ae178040b136, type: 3}
+  m_Script: {fileID: 11500000, guid: cef01d42006e6ed49919d823897eec22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   opacityScript: {fileID: 1267127726}
@@ -2855,8 +2855,19 @@ MonoBehaviour:
   targetPosition: {fileID: 532228414}
   startPosition: {fileID: 2040379989}
   playerPosition: {fileID: 2088192024}
-  target: 0
-  room: 0
+  TargetNone: 0
+  Target1: 0
+  Target2: 0
+  Target3: 0
+  Target4: 0
+  Target5: 0
+  Target6: 0
+  Target7: 0
+  Target8: 0
+  TransitionalRoom: 0
+  SmallRoom: 0
+  MediumRoom: 0
+  LargeRoom: 0
   transitionalRoom: {fileID: 919132148930424249}
   smallRoom: {fileID: 1282646906}
   mediumRoom: {fileID: 909756052}
